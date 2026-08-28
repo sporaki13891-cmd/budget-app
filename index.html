@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>Budget App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <h1>💰 Ο Προϋπολογισμός μου</h1>
+
+  <p id="period-label"></p>
+
+  <div id="summary">
+  <div id="balance-card">
+    <p>Υπόλοιπο</p>
+    <span id="balance">0</span>€
+  </div>
+  <div id="sub-summary">
+    <div class="sub-item income">
+      <p>Έσοδα</p>
+      <span id="total-income">0</span>€
+    </div>
+    <div class="sub-item expense">
+      <p>Έξοδα</p>
+      <span id="total-expense">0</span>€
+    </div>
+    <div class="sub-item savings">
+      <p>Κουμπαράς 🐷</p>
+      <span id="total-savings">0</span>€
+    </div>
+  </div>
+  </div>
+
+  <form id="transaction-form">
+  <input type="text" id="description" placeholder="Περιγραφή">
+  <input type="number" id="amount" placeholder="Ποσό (€)">
+  
+  <select id="type">
+  <option value="income">Έσοδο</option>
+  <option value="expense">Έξοδο</option>
+  <option value="savings">Αποταμίευση 🐷</option>
+  </select>
+  
+  <select id="category">
+  <option value="Φαγητό">Φαγητό</option>
+  <option value="Μεταφορές">Μεταφορές</option>
+  <option value="Λογαριασμοί">Λογαριασμοί</option>
+  <option value="Διασκέδαση">Διασκέδαση</option>
+  <option value="Άλλο">Άλλο</option>
+  </select>
+
+  <input type="date" id="date">
+
+  <button type="submit">Προσθήκη</button>
+  </form>
+
+  <div id="filter">
+  <label>Φίλτρο μήνα:</label>
+  <input type="month" id="month-filter">
+  <button id="clear-filter">Όλοι οι μήνες</button>
+  </div>
+
+  <ul id="transaction-list"></ul>
+
+  <div style="max-width: 350px; margin: 30px auto;">
+  <canvas id="chart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+  
+</body>
+</html>

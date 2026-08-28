@@ -1,0 +1,219 @@
+* { box-sizing: border-box; }
+
+html {
+  background: radial-gradient(circle at 25% 15%, #1e1b3a 0%, #0a0a12 55%);
+  min-height: 100vh;
+  color-scheme: dark;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #e6e4f0;
+  max-width: 620px;
+  margin: 40px auto;
+  padding: 28px;
+  background: #13131f;
+  border: 1px solid #262637;
+  border-radius: 20px;
+  box-shadow: 0 0 60px rgba(139, 92, 246, 0.18);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a855f7, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 14px rgba(139, 92, 246, 0.55));
+}
+
+/* ---- Ταμπλό ---- */
+#summary { margin-bottom: 28px; }
+
+#balance-card {
+  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 55%, #0891b2 100%);
+  color: #fff;
+  border-radius: 18px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 0 45px rgba(124, 58, 237, 0.55);
+  margin-bottom: 14px;
+}
+
+#balance-card p {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+#balance-card span { font-size: 42px; font-weight: 700; }
+
+#sub-summary { display: flex; gap: 14px; }
+
+.sub-item {
+  flex: 1;
+  background: #1a1a29;
+  border: 1px solid #2a2a3e;
+  border-radius: 14px;
+  padding: 14px;
+  text-align: center;
+}
+
+.sub-item p { margin: 0 0 4px 0; font-size: 13px; color: #8b88a3; }
+.sub-item span { font-size: 22px; font-weight: 600; }
+.income span { color: #34d399; text-shadow: 0 0 10px rgba(52, 211, 153, 0.4); }
+.expense span { color: #fb7185; text-shadow: 0 0 10px rgba(251, 113, 133, 0.4); }
+
+.savings span {
+  color: #fbbf24;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+}
+
+/* Τα τρία κουτάκια να αναπνέουν καλύτερα */
+#sub-summary { flex-wrap: wrap; }
+.sub-item { flex: 1 1 100px; }
+.sub-item span { font-size: 20px; }
+
+/* ---- Φόρμα ---- */
+#transaction-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+#transaction-form input,
+#transaction-form select {
+  flex: 1 1 140px;
+  padding: 12px 14px;
+  background: #1a1a29;
+  color: #e6e4f0;
+  border: 1px solid #2f2f45;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#transaction-form input::placeholder { color: #6b6880; }
+
+#transaction-form input:focus,
+#transaction-form select:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.25);
+}
+
+#transaction-form button {
+  flex: 1 1 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.35);
+}
+
+#transaction-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 32px rgba(124, 58, 237, 0.7);
+}
+
+/* ---- Φίλτρο ---- */
+#filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  font-size: 14px;
+  color: #9490ab;
+}
+
+#filter input {
+  padding: 9px;
+  background: #1a1a29;
+  color: #e6e4f0;
+  border: 1px solid #2f2f45;
+  border-radius: 10px;
+  font-family: inherit;
+}
+
+#filter button {
+  padding: 9px 16px;
+  background: #241f3d;
+  color: #c4b5fd;
+  border: 1px solid #3a3160;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+#filter button:hover {
+  background: #2e2650;
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.4);
+}
+
+/* ---- Λίστα ---- */
+#transaction-list { list-style: none; padding: 0; margin: 0 0 28px 0; }
+
+#transaction-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: #1a1a29;
+  border: 1px solid #2a2a3e;
+  border-radius: 12px;
+  margin-bottom: 9px;
+  font-size: 14px;
+  animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#transaction-list button {
+  background: #3a1f28;
+  color: #fb7185;
+  border: none;
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-left: 12px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+#transaction-list button:hover {
+  background: #4d2733;
+  box-shadow: 0 0 14px rgba(251, 113, 133, 0.5);
+}
+
+#transaction-form select:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#period-label {
+  text-align: center;
+  margin: -14px 0 26px 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #a78bfa;
+  text-shadow: 0 0 12px rgba(167, 139, 250, 0.4);
+}
