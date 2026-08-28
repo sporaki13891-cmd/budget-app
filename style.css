@@ -217,3 +217,11 @@ h1 {
   color: #a78bfa;
   text-shadow: 0 0 12px rgba(167, 139, 250, 0.4);
 }
+
+@media (max-width: 640px) {
+  body {
+    margin: 12px auto;
+    padding: 18px;
+  }
+  #balance-card span { font-size: 34px; }
+}
